@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | NebulaTrade</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+</head>
+<body class="auth-page">
+
+<div class="auth-wrapper">
+
+    <div class="auth-card glass">
+
+        <a href="{{ url_for('main') }}" class="back-link">← Back</a>
+
+        <h1>Welcome Back</h1>
+        <p class="subtext">Sign in to your trading console</p>
+
+        <!-- FLASH MESSAGE BLOCK -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button class="primary-btn" type="submit">Sign In</button>
+
+        </form>
+
+        <div class="auth-footer">
+            New here? <a href="/signup">Create account</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

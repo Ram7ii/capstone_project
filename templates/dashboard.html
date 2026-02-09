@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trading Console – NebulaTrade</title>
+
+  <!-- ONE MASTER THEME -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌌 NebulaTrade</div>
+  <div>
+    <a href="/watchlist">Watchlist</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/logout">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <h2>Trading Console</h2>
+  <p style="color:var(--muted)">Welcome back, {{ user }}.</p>
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="stat-card">
+      <span>Virtual Balance</span>
+      <h3>${{ balance }}</h3>
+    </div>
+
+    <div class="stat-card">
+      <span>Tracked Assets</span>
+      <h3>{{ user_watchlist|length }}</h3>
+    </div>
+
+    <div class="stat-card">
+      <span>Available Stocks</span>
+      <h3>{{ stocks|length }}</h3>
+    </div>
+
+  </div>
+
+  <!-- MARKET PANEL -->
+  <div class="panel">
+
+    <h3>Live Market Feed</h3>
+
+    <table>
+      <tr>
+        <th>Company</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Trade</th>
+        <th>Analytics</th>
+      </tr>
+
+      {% for stock in stocks %}
+      <tr>
+
+        <td>{{ stock.company }}</td>
+        <td>${{ stock.price }}</td>
+        <td>{{ stock.date }}</td>
+
+        <!-- WATCHLIST -->
+        <td>
+          {% if stock.company in user_watchlist %}
+            <span class="profit">Tracked</span>
+          {% else %}
+            <a href="/add_to_watchlist/{{ stock.company }}" class="btn-outline">
+              Add
+            </a>
+          {% endif %}
+        </td>
+
+        <!-- BUY -->
+        <td>
+          <form method="POST" action="/buy/{{ stock.company }}">
+            <input type="number" name="quantity" value="1" min="1" required>
+            <button type="submit" class="btn">Execute</button>
+          </form>
+        </td>
+
+        <!-- CHART -->
+        <td>
+          <a href="/chart/{{ stock.company }}" class="btn-outline">
+            View
+          </a>
+        </td>
+
+      </tr>
+      {% endfor %}
+
+    </table>
+
+  </div>
+
+</div>
+
+</body>
+</html>

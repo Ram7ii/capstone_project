@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ company }} Analytics – NebulaTrade</title>
+
+  <!-- MASTER DARK THEME -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+  <!-- CHART.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌌 NebulaTrade</div>
+  <div>
+    <a href="/dashboard">Trading Console</a>
+    <a href="/watchlist">Watchlist</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/logout">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h2>{{ company }} – Price Analytics</h2>
+  <p style="color:var(--muted)">
+    30-day historical trend and closing values.
+  </p>
+
+  <!-- CHART PANEL -->
+  <div class="panel">
+
+    <canvas id="priceChart" height="120"></canvas>
+
+  </div>
+
+  <!-- DATA TABLE -->
+  <div class="panel" style="margin-top:30px;">
+
+    <h3>Historical Prices</h3>
+
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Close Price</th>
+      </tr>
+
+      {% for d in data %}
+      <tr>
+        <td>{{ d.Date }}</td>
+        <td>${{ d.Close }}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+
+  </div>
+
+</div>
+
+<script>
+  const labels = [
+    {% for d in data %}
+      "{{ d.Date }}",
+    {% endfor %}
+  ];
+
+  const prices = [
+    {% for d in data %}
+      {{ d.Close }},
+    {% endfor %}
+  ];
+
+  const ctx = document.getElementById("priceChart");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "{{ company }} Closing Price",
+        data: prices,
+        borderColor: "#00ffd5",
+        backgroundColor: "rgba(0,255,213,0.15)",
+        tension: 0.35,
+        fill: true,
+        pointRadius: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: "#e5e7eb" }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "#9aa4b2" },
+          grid: { color: "rgba(255,255,255,0.05)" }
+        },
+        y: {
+          ticks: { color: "#9aa4b2" },
+          grid: { color: "rgba(255,255,255,0.05)" }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

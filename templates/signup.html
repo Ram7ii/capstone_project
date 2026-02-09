@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signup | NebulaTrade</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+</head>
+<body class="auth-page">
+
+<div class="auth-wrapper">
+
+    <div class="auth-card glass">
+
+        <a href="{{ url_for('main') }}" class="back-link">← Back</a>
+
+        <h1>Create Account</h1>
+        <p class="subtext">Join NebulaTrade simulation platform</p>
+
+        <form method="POST">
+
+            <div class="input-group">
+                <input type="text" name="name" required>
+                <label>Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button class="primary-btn" type="submit">Create Account</button>
+
+        </form>
+
+        <div class="auth-footer">
+            Already registered? <a href="/login">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

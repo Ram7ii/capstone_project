@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* VIDEO BG */
+#bg-video {
+  position: fixed;
+  inset: 0;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 10, 20, 0.85),
+    rgba(0, 0, 0, 0.95)
+  );
+  z-index: -2;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 60px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-left {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-right a {
+  color: #9aa4b2;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  color: #00f5c6;
+}
+
+.btn-nav {
+  background: linear-gradient(135deg, #00f5c6, #3b82f6);
+  padding: 9px 16px;
+  border-radius: 8px;
+  color: black !important;
+}
+
+/* HERO */
+.cont {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 900px;
+  padding-left: 80px;
+  color: white;
+}
+
+.cont h1 {
+  font-size: 3.8rem;
+  line-height: 1.1;
+}
+
+.cont p {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  color: #c7d0df;
+}
+
+/* CTA */
+.btn-main {
+  margin-top: 28px;
+  display: inline-block;
+  background: linear-gradient(135deg, #00f5c6, #3b82f6);
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 245, 198, 0.4);
+}
+
+/* DARK SECTIONS */
+.features,
+.how-it-works,
+.cta {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  padding: 90px;
+  text-align: center;
+}
+
+.feature-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.feature-grid div {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s;
+}
+
+.feature-grid div:hover {
+  transform: translateY(-8px);
+  border-color: #00f5c6;
+}

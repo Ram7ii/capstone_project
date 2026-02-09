@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watchlist – NebulaTrade</title>
+
+  <!-- MASTER DARK THEME -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌌 NebulaTrade</div>
+  <div>
+    <a href="/dashboard">Trading Console</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/logout">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h2>Market Watchlist</h2>
+  <p style="color:var(--muted)">
+    Virtual capital remaining: <b>${{ balance }}</b>
+  </p>
+
+  <!-- SUMMARY -->
+  <div class="stats">
+
+    <div class="stat-card">
+      <span>Tracked Symbols</span>
+      <h3>{{ watchlist|length }}</h3>
+    </div>
+
+  </div>
+
+  <!-- WATCHLIST TABLE -->
+  <div class="panel">
+
+    {% if watchlist %}
+    <table>
+      <tr>
+        <th>Asset</th>
+        <th>Market Price</th>
+        <th>Last Updated</th>
+        <th>Trade</th>
+      </tr>
+
+      {% for stock in watchlist %}
+      <tr>
+        <td>{{ stock.company }}</td>
+        <td>${{ stock.price }}</td>
+        <td>{{ stock.date }}</td>
+
+        <td>
+          <form method="POST" action="/buy/{{ stock.company }}">
+            <input type="number" name="quantity" value="1" min="1" required>
+            <button type="submit" class="btn">Execute</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    {% else %}
+      <p>No assets currently being tracked.</p>
+    {% endif %}
+
+  </div>
+
+</div>
+
+</body>
+</html>

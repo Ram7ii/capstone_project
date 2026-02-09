@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – NebulaTrade</title>
+
+  <!-- MASTER DARK THEME -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌌 NebulaTrade</div>
+  <div>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/dashboard">Trading Console</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="panel">
+
+    <h2>Contact NebulaTrade</h2>
+
+    <p style="color:var(--muted); margin-top:10px;">
+      Need assistance or have feedback about the platform?  
+      Our support team is happy to help.
+    </p>
+
+    <div style="margin-top:25px; line-height:1.9;">
+      <p><strong>Email:</strong> support@nebulatrade.ai</p>
+      <p><strong>Office:</strong> Global (Remote-first)</p>
+      <p><strong>Availability:</strong> 24×7 Support Desk</p>
+    </div>
+
+    <h3 style="margin-top:35px;">Send Us a Message</h3>
+
+    <form class="contact-form" style="margin-top:15px; max-width:520px;">
+
+      <input type="text" placeholder="Full Name" required>
+      <br><br>
+
+      <input type="email" placeholder="Email Address" required>
+      <br><br>
+
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <br><br>
+
+      <button type="submit" class="btn">Submit Request</button>
+
+    </form>
+
+  </div>
+
+</div>
+
+</body>
+</html>

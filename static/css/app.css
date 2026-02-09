@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+:root {
+  --bg: #060a13;
+  --panel: rgba(20, 26, 44, 0.85);
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+  --accent: #00ffd5;
+  --accent2: #3b82f6;
+  --danger: #ff5c5c;
+  --success: #2cff9a;
+  --text: #e5e7eb;
+  --muted: #9aa4b2;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #111827, #030712);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ================= NAV ================= */
+
+nav {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 22px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 80px;
+}
+
+.hero-text {
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  padding: 14px 28px;
+  border-radius: 12px;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 12px;
+  display: inline-block;
+  transition: 0.25s;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: white;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  max-width: 1300px;
+  margin: 60px auto;
+  padding: 40px;
+}
+
+/* ================= GLASS PANEL ================= */
+
+.panel {
+  background: var(--panel);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 30px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* ================= DASHBOARD STATS ================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: var(--glass);
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.stat-card h3 {
+  font-size: 1.8rem;
+}
+
+.stat-card span {
+  color: var(--muted);
+}
+
+/* ================= TABLE ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  background: rgba(255,255,255,0.05);
+  color: var(--muted);
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ================= FORMS ================= */
+
+input, textarea {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* =====================================================
+   AUTH / LOGIN / SIGNUP (PRO UPGRADE)
+===================================================== */
+
+.auth-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left,#0b1220,#020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(12,18,35,0.8);
+  backdrop-filter: blur(26px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.8);
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(25px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.auth-card h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.subtext {
+  font-size: .95rem;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.back-link {
+  display:inline-block;
+  color: var(--accent2);
+  margin-bottom: 18px;
+  text-decoration:none;
+  font-size:.9rem;
+}
+
+.back-link:hover {
+  text-decoration:underline;
+}
+
+/* Floating Inputs */
+
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-group input {
+  width:100%;
+  padding:14px 12px;
+  background:#020617;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  font-size:.95rem;
+}
+
+.input-group label {
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:.8rem;
+  color:#64748b;
+  pointer-events:none;
+  transition:.3s;
+  background:#020617;
+  padding:0 6px;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top:-9px;
+  font-size:.7rem;
+  color:var(--accent);
+}
+
+/* Button */
+
+.primary-btn {
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:black;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.primary-btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 15px 40px rgba(0,255,213,.45);
+}
+
+/* Footer */
+
+.auth-footer {
+  text-align:center;
+  margin-top:22px;
+  font-size:.9rem;
+}
+
+.auth-footer a {
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* ================= FLASH ================= */
+
+.flash {
+  background: rgba(255,0,80,0.12);
+  border: 1px solid rgba(255,0,80,0.3);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* ================= COLORS ================= */
+
+.profit { color: var(--success); }
+.loss { color: var(--danger); }
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .hero { padding: 40px; }
+  .hero h1 { font-size: 2.4rem; }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NebulaTrade – Market Simulation Platform</title>
+
+  <!-- ONE MASTER CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌌 NebulaTrade</div>
+  <div>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+    <a href="/login">Login</a>
+    <a href="/signup" class="btn-outline">Sign Up</a>
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <h1>Simulate Markets.<br>Master Trading.</h1>
+
+    <p>
+      NebulaTrade is a next-generation cloud trading simulator designed for
+      aspiring investors to practice strategies, execute virtual trades, and
+      analyze portfolio performance in a risk-free environment.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="/signup" class="btn">Start Trading</a>
+      <a href="{{ url_for('dashboard') }}">Open Trading Console</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
