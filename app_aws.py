@@ -32,7 +32,7 @@ WATCHLIST_TABLE = "Watchlist"
 
 SNS_TOPIC_ARN = os.environ.get(
     "SNS_TOPIC_ARN",
-    "arn:aws:sns:us-east-1:123456789012:nebula-alerts"
+    "arn:aws:sns:us-east-1:242201268861:aws-capstone-topic"
 )
 
 users_table = dynamodb.Table(USERS_TABLE)
